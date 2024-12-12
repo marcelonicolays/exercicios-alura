@@ -26,11 +26,11 @@ Desafios: hora da prática (Curso Lógica de Programação - Alura).
 
 function verificarPositivo(num){
     if (num > 0) {
-	return alert('Número positivo');
+	alert('Número positivo');
     } else if (num = 0){
-	return alert('Número é zero');
+	alert('Número é zero');
     } else{
-	return alert('Número negativo');
+	alert('Número negativo');
     }
 }
 
@@ -38,9 +38,9 @@ function verificarPositivo(num){
 
 function maioridade(idade){
     if (idade >= 18){
-	return alert('É maior de idade');
+	alert('É maior de idade');
     } else {
-	return alert('É menor de idade');
+	alert('É menor de idade');
     }
 }
 
@@ -48,9 +48,9 @@ function maioridade(idade){
 
 function validaStr(string){
     if (string = ''){
-	return alert('String vazia');
+	alert('String vazia');
     } else {
-	return alert('String possui valor');
+	alert('String possui valor');
     }
 }
 
@@ -64,4 +64,87 @@ function anoBissexto(ano){
     }else {
 	alert ('Ano não é Bissexto!');
     }
+}
+
+// Exercicio 5
+
+function media(num1, num2){
+    if (isNaN(num1) || isNaN(num2)){
+	alert('Digite númeors válidos');
+	return;
+}
+    let resultado = (num1 + num2) / 2;
+    alert(`Média dos números ${num1} e ${num2} é ${resultado}!`);
+}
+
+// Exercicio 6
+
+function arrayNumber(array){
+     return array.length;
+}
+
+// Exercicio 7
+
+let lista = [1, 2, 3, 4, 5, 6, 7];
+if (lista.includes(4)){
+     alert ('Numero incluído na lista.');
+}
+
+// Exercicio 8
+
+function procurarElemento(array, elemento){
+    if (array.includes(elemento)){
+	alert('Elemento presente');
+    }else{
+	alert('Elemento não está presente');
+    }
+}
+
+// Exercicio 9
+
+let strings['Hoje', 'Amanhã', 'Ontem', 'Um dia'];
+
+if (strings.includes('Ontem')){
+     alert ('String incluída na lista.');
+}
+
+// Exercicio 10
+let estudantes = [
+    { nome: '', idade: '', curso: '' }
+];
+let estudanteProcurado = { nome: '', idade: '', curso: '' };
+function procurarEstudante(array, objeto){
+	localizado = array.some(estudante ==>
+	  estudante.nome === objeto.nome &&
+	  estudante.idade === objeto.idade &&
+	  estudante.curso === objeto.curso
+	);
+	if (localizado) {
+	  alert ('Estudante localizado');
+	} else{
+	  alert ('Estudante não localizado');
+	}
+}
+
+// Exercicio 11
+
+function calculos(numeros){
+	let numerosPares = [];
+	let numerosImpares = [];
+	let soma = 0;
+	let produto = 1;
+	for (let i = 0; i < numeros.length; i++){
+	   if (numeros[i] % 2 === 0){
+		numerosPares.push(numeros[i]);
+	   } else {
+		numerosImpares.push(numeros[i]);
+	   }
+	}
+	for (let i = 0; i < numerosPares.length; i++){
+	   soma += numerosPares[i];
+	}
+	for (let i = 0; i < numerosImpares.length; i++){
+	   produto *= numerosImpares[i];
+	}
+	alert(`A soma dos números pares é ${soma} e o produto dos númeors ímpares é ${produto}`);
 }

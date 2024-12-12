@@ -37,34 +37,31 @@ function verificarPositivo(num){
 // Exercicio 2
 
 function maioridade(idade){
-    if (idade >= 18){
-	alert('É maior de idade');
-    } else {
-	alert('É menor de idade');
-    }
+    return idade >= 18 ? 'Marior de idade' : 'Menor de idade';
 }
+
+console.log(maioridade(18));
 
 // Exercicio 3
 
 function validaStr(string){
-    if (string = ''){
-	alert('String vazia');
-    } else {
-	alert('String possui valor');
-    }
+    return string === "" ? "String vazia" : "String não vazia";
 }
+
+console.log(validaStr("Aqui há um texto?"));
+console.log(validaStr(""));
 
 // Exercicio 4
 
 function anoBissexto(ano){
-    if (ano % 4 == 0 && ano % 100 != 0){
-	alert ('Ano é Bissexto!');
-    } else if (ano % 400 == 0){
-	alert ('Ano é Bissexto!');
+    if ((ano % 4 === 0 && ano % 100 !== 0) || ano % 400 == 0){
+	return 'Ano é Bissexto!';
     }else {
-	alert ('Ano não é Bissexto!');
+	return 'Ano não é Bissexto!';
     }
 }
+
+console.log(verificarAnoBissexto(2025));
 
 // Exercicio 5
 
@@ -73,9 +70,10 @@ function media(num1, num2){
 	alert('Digite númeors válidos');
 	return;
 }
-    let resultado = (num1 + num2) / 2;
-    alert(`Média dos números ${num1} e ${num2} é ${resultado}!`);
+    return (num1 + num2) / 2;
 }
+let resultado = media(1, 5)
+console.log(`Média dos números ${num1} e ${num2} é ${resultado}!`);
 
 // Exercicio 6
 
@@ -109,42 +107,35 @@ if (strings.includes('Ontem')){
 }
 
 // Exercicio 10
+
+function procurarEstudante(array, objeto){
+	return array.some(estudante ==> JSON.stringify(estudante) === JSON.stringify(objeto));
+}
 let estudantes = [
     { nome: '', idade: '', curso: '' }
 ];
 let estudanteProcurado = { nome: '', idade: '', curso: '' };
-function procurarEstudante(array, objeto){
-	localizado = array.some(estudante ==>
-	  estudante.nome === objeto.nome &&
-	  estudante.idade === objeto.idade &&
-	  estudante.curso === objeto.curso
-	);
-	if (localizado) {
-	  alert ('Estudante localizado');
-	} else{
-	  alert ('Estudante não localizado');
-	}
+let localizado = procurarEstudante(estudantes, estudanteProcurado);
+if (localizado) {
+  alert ('Estudante localizado');
+} else{
+  alert ('Estudante não localizado');
 }
 
 // Exercicio 11
 
 function calculos(numeros){
-	let numerosPares = [];
-	let numerosImpares = [];
-	let soma = 0;
-	let produto = 1;
+	let somaPares = 0;
+	let produtoImpares = 1;
 	for (let i = 0; i < numeros.length; i++){
 	   if (numeros[i] % 2 === 0){
-		numerosPares.push(numeros[i]);
+		somaPares += numeros[i];
 	   } else {
-		numerosImpares.push(numeros[i]);
+		produtoImpares *= numeros[i];
 	   }
 	}
-	for (let i = 0; i < numerosPares.length; i++){
-	   soma += numerosPares[i];
-	}
-	for (let i = 0; i < numerosImpares.length; i++){
-	   produto *= numerosImpares[i];
-	}
-	alert(`A soma dos números pares é ${soma} e o produto dos númeors ímpares é ${produto}`);
+	return {somaPares, produtoImpares};
 }
+let numeros = [];
+let resultado = calculos(numeros);
+alert(`A soma dos números pares é ${resultado.somaPares} e o produto dos números ímpares é ${resultado.produtoImpares}`);

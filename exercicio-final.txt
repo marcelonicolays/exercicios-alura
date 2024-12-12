@@ -58,10 +58,10 @@ function validaStr(string){
 
 function anoBissexto(ano){
     if (ano % 4 == 0 && ano % 100 != 0){
-	alert ('Ano é Bissexto!'):
-    } else if (ano % 4 == 0 && ano % 400 == 0){
-	alert ('Ano é Bissexto!'):
+	alert ('Ano é Bissexto!');
+    } else if (ano % 400 == 0){
+	alert ('Ano é Bissexto!');
     }else {
-	alert ('Ano não é Bissexto!'):
+	alert ('Ano não é Bissexto!');
     }
 }
